@@ -1,0 +1,6 @@
+{"id":"sql-1","input":"How many customers are there?","expected":{"sql":"SELECT COUNT(*) FROM customers"},"metadata":{"benchmark":"seeded shop demo"}}
+{"id":"sql-2","input":"What is the total revenue from completed orders?","expected":{"sql":"SELECT SUM(oi.quantity * oi.unit_price) FROM order_items oi JOIN orders o ON oi.order_id=o.id WHERE o.status='completed'"},"metadata":{"benchmark":"seeded shop demo"}}
+{"id":"sql-3","input":"List the name of each customer from Singapore, alphabetically.","expected":{"sql":"SELECT name FROM customers WHERE country='Singapore' ORDER BY name","ordered":true},"metadata":{"benchmark":"seeded shop demo"}}
+{"id":"sql-4","input":"Show each product category and its number of products.","expected":{"sql":"SELECT category, COUNT(*) FROM products GROUP BY category"},"metadata":{"benchmark":"seeded shop demo"}}
+{"id":"sql-5","input":"List the names of customers who have never placed an order.","expected":{"sql":"SELECT c.name FROM customers c LEFT JOIN orders o ON c.id=o.customer_id WHERE o.id IS NULL"},"metadata":{"benchmark":"seeded shop demo"}}
+{"id":"sql-6","input":"List the names of products priced over 1000.","expected":{"sql":"SELECT name FROM products WHERE price>1000"},"metadata":{"benchmark":"seeded shop demo"}}

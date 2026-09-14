@@ -1,0 +1,24 @@
+{
+  "source": {
+    "train": {
+      "url": "https://bird-bench.oss-cn-beijing.aliyuncs.com/train.zip",
+      "sha256": "66e9e3115b59559554013aa3b124156249f30437a6b4e4f96de3d2dfb5ae8cbc",
+      "bytes": 8919543554
+    },
+    "dev": {
+      "url": "https://bird-bench.oss-cn-beijing.aliyuncs.com/dev.zip",
+      "sha256": "cdd6d19faeb45a23970b98d3ef6c40a87987c95459c2cf12076897a60cf5a630",
+      "bytes": 346207293
+    }
+  },
+  "mini_dev": {
+    "repository": "birdsql/bird_mini_dev",
+    "revision": "f65faf4ae3b638c1fa6df1d3370c8d92c8366301",
+    "sha256": "88ceb0710163cae46a256ecea8f0a8c98286599530b60587fda5c3cfe57d45d2"
+  },
+  "scorer": {
+    "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+    "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+    "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+  }
+}

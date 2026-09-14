@@ -1,0 +1,124 @@
+{
+  "version": "sql-diagnostics-1",
+  "split": "development",
+  "runs": {
+    "baseline": {
+      "run_id": "20260828T104247.167114Z-4a1e2ced",
+      "dataset_hash": "0f0b5441afc06eadd530b47486e7d92789b7cdd21feac2fd7fbb32bb4e5ba191",
+      "predictions_sha256": "02fc4af18211a8a5a03a5adbd58ccc32c0cf7c3869ccd2da2e09dfb5ae7f37a4",
+      "count": 100,
+      "outcomes": {
+        "gold_unscorable": 6,
+        "correct": 28,
+        "execution_mismatch": 48,
+        "application_failure": 18
+      },
+      "rejected_attempt_categories": {
+        "timeout": 2,
+        "syntax_error": 2,
+        "schema_mismatch": 12,
+        "validation_or_execution_error": 4,
+        "safety_rejection": 2
+      },
+      "uncaught_error_types": {},
+      "initial_execution_failures": 22,
+      "recovered_execution": 0,
+      "recovered_correct": 0,
+      "recovered_gold_unscorable": 0,
+      "empty_executions": 16,
+      "correct_empty_executions": 2,
+      "gold_failure_categories": {
+        "deadline": 2,
+        "result_budget": 1,
+        "schema_reference_mismatch": 3
+      },
+      "gold_execution_errors": {
+        "bird-train-0": "OperationalError: interrupted",
+        "bird-train-31": "ValueError: Result exceeds 10000 rows; refine the query. Evaluation is not truncated.",
+        "bird-train-32": "OperationalError: interrupted",
+        "bird-train-76": "OperationalError: no such table: Order Details",
+        "bird-train-77": "OperationalError: no such column: CompanyName",
+        "bird-train-78": "OperationalError: no such table: Order Details"
+      }
+    },
+    "linking": {
+      "run_id": "20260828T104653.239981Z-34e93d49",
+      "dataset_hash": "0f0b5441afc06eadd530b47486e7d92789b7cdd21feac2fd7fbb32bb4e5ba191",
+      "predictions_sha256": "e5e430919f7f67e31c71805f246ee6c178f8cea34667235467e531c494c5ec0e",
+      "count": 100,
+      "outcomes": {
+        "gold_unscorable": 6,
+        "execution_mismatch": 48,
+        "correct": 24,
+        "application_failure": 22
+      },
+      "rejected_attempt_categories": {
+        "timeout": 2,
+        "syntax_error": 1,
+        "validation_or_execution_error": 9,
+        "schema_mismatch": 12,
+        "safety_rejection": 1
+      },
+      "uncaught_error_types": {},
+      "initial_execution_failures": 25,
+      "recovered_execution": 0,
+      "recovered_correct": 0,
+      "recovered_gold_unscorable": 0,
+      "empty_executions": 12,
+      "correct_empty_executions": 2,
+      "gold_failure_categories": {
+        "deadline": 2,
+        "result_budget": 1,
+        "schema_reference_mismatch": 3
+      },
+      "gold_execution_errors": {
+        "bird-train-0": "OperationalError: interrupted",
+        "bird-train-31": "ValueError: Result exceeds 10000 rows; refine the query. Evaluation is not truncated.",
+        "bird-train-32": "OperationalError: interrupted",
+        "bird-train-76": "OperationalError: no such table: Order Details",
+        "bird-train-77": "OperationalError: no such column: CompanyName",
+        "bird-train-78": "OperationalError: no such table: Order Details"
+      }
+    },
+    "corrected": {
+      "run_id": "20260828T105131.213647Z-faaa4e61",
+      "dataset_hash": "0f0b5441afc06eadd530b47486e7d92789b7cdd21feac2fd7fbb32bb4e5ba191",
+      "predictions_sha256": "bb90706b279d755a02995af33d4bf89bbde1e4e7f51121455b45a9b57a28e169",
+      "count": 100,
+      "outcomes": {
+        "gold_unscorable": 6,
+        "execution_mismatch": 57,
+        "correct": 26,
+        "application_failure": 11
+      },
+      "rejected_attempt_categories": {
+        "timeout": 7,
+        "syntax_error": 3,
+        "validation_or_execution_error": 20,
+        "schema_mismatch": 21,
+        "safety_rejection": 2
+      },
+      "uncaught_error_types": {},
+      "initial_execution_failures": 24,
+      "recovered_execution": 11,
+      "recovered_correct": 1,
+      "recovered_gold_unscorable": 1,
+      "empty_executions": 14,
+      "correct_empty_executions": 2,
+      "gold_failure_categories": {
+        "deadline": 2,
+        "result_budget": 1,
+        "schema_reference_mismatch": 3
+      },
+      "gold_execution_errors": {
+        "bird-train-0": "OperationalError: interrupted",
+        "bird-train-31": "ValueError: Result exceeds 10000 rows; refine the query. Evaluation is not truncated.",
+        "bird-train-32": "OperationalError: interrupted",
+        "bird-train-76": "OperationalError: no such table: Order Details",
+        "bird-train-77": "OperationalError: no such column: CompanyName",
+        "bird-train-78": "OperationalError: no such table: Order Details"
+      }
+    }
+  },
+  "note": "Execution recovery is not answer correctness. Gold execution failures retain zero credit in the full denominator; they are not solely model errors."
+}

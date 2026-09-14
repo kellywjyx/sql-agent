@@ -1,0 +1,30 @@
+{
+  "captured": "20260828T093128Z-903d06fa",
+  "cases": [
+    {
+      "model": {
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+      },
+      "phase": "after_explicit_unload",
+      "wall_seconds": 10.2390291000047,
+      "load_seconds": 9.9041411,
+      "prompt_seconds": 0.103743,
+      "generation_seconds": 0.058333,
+      "output": "Ready."
+    },
+    {
+      "model": {
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e"
+      },
+      "phase": "warm_repeat",
+      "wall_seconds": 0.24613709999539424,
+      "load_seconds": 0.0010231,
+      "prompt_seconds": 0.019917,
+      "generation_seconds": 0.038967,
+      "output": "Ready."
+    }
+  ],
+  "note": "Model residency probe; not app end-to-end latency or quality. Local API charge $0; electricity unmeasured."
+}

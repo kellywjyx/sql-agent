@@ -1,0 +1,344 @@
+{
+  "schema_version": 1,
+  "project": "sql-agent",
+  "split": "development",
+  "dataset_hash": "0f0b5441afc06eadd530b47486e7d92789b7cdd21feac2fd7fbb32bb4e5ba191",
+  "all_cases_attempted": true,
+  "execution_gate_passed": false,
+  "baseline": "baseline",
+  "runs": {
+    "baseline": {
+      "run_id": "20260828T104247.167114Z-4a1e2ced",
+      "created_at": "2026-08-28T10:46:39.021520+00:00",
+      "count": 100,
+      "completed": 78,
+      "failed": 22,
+      "skipped": 0,
+      "status": "failed",
+      "metrics": {
+        "guarded_bird_ex": 0.28,
+        "first_attempt_accuracy": 0.28,
+        "first_attempt_execution_rate": 0.78,
+        "execution_recovered_fraction": 0.0,
+        "timeout_case_fraction": 0.02
+      },
+      "metric_versions": {
+        "guarded_bird_ex": "2",
+        "first_attempt_accuracy": "2",
+        "first_attempt_execution_rate": "2",
+        "execution_recovered_fraction": "2",
+        "timeout_case_fraction": "2"
+      },
+      "confidence_intervals": {
+        "guarded_bird_ex": {
+          "low": 0.2,
+          "high": 0.37,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        },
+        "first_attempt_accuracy": {
+          "low": 0.2,
+          "high": 0.37,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        }
+      },
+      "p50_seconds": 1.896521799993934,
+      "p95_seconds": 4.3772054000000935,
+      "identity": {
+        "code_commit": null,
+        "source_hash": "3a7dfd3c616ff3928b1e1f8ff1b46320a37ac82894c003d13c891b7fd3b64af5",
+        "working_tree_dirty": true,
+        "code_identity_note": "Source hash is authoritative for uncommitted local experiments",
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "mode": "live",
+        "setting": "baseline",
+        "split": "development",
+        "scorer": {
+          "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+          "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+          "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+        },
+        "prompt_version": "sql-v2-schema-graph-values",
+        "configuration_hash": "b726908d9782268329158698b54b3f8605ee0f9a06f28f8311cf63cbba40bd83",
+        "prompt_hash": "fc2325ff74452eca3e2814faa48cf796e9b1c51bc758d0a3c12e975f28e57a65",
+        "prompt_hash_basis": "source hash and declared prompt version, unless explicitly supplied"
+      },
+      "gate_failures": [
+        "22 examples failed or were skipped"
+      ],
+      "predictions_sha256": "02fc4af18211a8a5a03a5adbd58ccc32c0cf7c3869ccd2da2e09dfb5ae7f37a4",
+      "analysis_categories": {
+        "gold_execution_failure": 6,
+        "execution_mismatch": 48,
+        "application_failure": 18
+      },
+      "execution_details": {
+        "by_difficulty": {
+          "unavailable": {
+            "count": 100,
+            "execution_accuracy": 0.28
+          }
+        },
+        "gold_execution_errors": {
+          "bird-train-0": "OperationalError: interrupted",
+          "bird-train-31": "ValueError: Result exceeds 10000 rows; refine the query. Evaluation is not truncated.",
+          "bird-train-32": "OperationalError: interrupted",
+          "bird-train-76": "OperationalError: no such table: Order Details",
+          "bird-train-77": "OperationalError: no such column: CompanyName",
+          "bird-train-78": "OperationalError: no such table: Order Details"
+        },
+        "correction_recovery": {
+          "initial_execution_failures": 22,
+          "recovered": 0,
+          "conditional_rate": 0.0
+        },
+        "claim": "Local guarded Mini-Dev evaluation using upstream EX comparator; not an official leaderboard submission"
+      }
+    },
+    "linking": {
+      "run_id": "20260828T104653.239981Z-34e93d49",
+      "created_at": "2026-08-28T10:51:16.973135+00:00",
+      "count": 100,
+      "completed": 75,
+      "failed": 25,
+      "skipped": 0,
+      "status": "failed",
+      "metrics": {
+        "guarded_bird_ex": 0.24,
+        "first_attempt_accuracy": 0.24,
+        "first_attempt_execution_rate": 0.75,
+        "execution_recovered_fraction": 0.0,
+        "timeout_case_fraction": 0.02
+      },
+      "metric_versions": {
+        "guarded_bird_ex": "2",
+        "first_attempt_accuracy": "2",
+        "first_attempt_execution_rate": "2",
+        "execution_recovered_fraction": "2",
+        "timeout_case_fraction": "2"
+      },
+      "confidence_intervals": {
+        "guarded_bird_ex": {
+          "low": 0.16,
+          "high": 0.32,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        },
+        "first_attempt_accuracy": {
+          "low": 0.16,
+          "high": 0.32,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        }
+      },
+      "p50_seconds": 2.3588302000134718,
+      "p95_seconds": 3.738634199995431,
+      "identity": {
+        "code_commit": null,
+        "source_hash": "3a7dfd3c616ff3928b1e1f8ff1b46320a37ac82894c003d13c891b7fd3b64af5",
+        "working_tree_dirty": true,
+        "code_identity_note": "Source hash is authoritative for uncommitted local experiments",
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "mode": "live",
+        "setting": "linking",
+        "split": "development",
+        "scorer": {
+          "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+          "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+          "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+        },
+        "prompt_version": "sql-v2-schema-graph-values",
+        "configuration_hash": "c0c5da4b6ce136322fcaaa3f5cd7bfc09ebac0318e61b2ec950db254804dbf8a",
+        "prompt_hash": "fc2325ff74452eca3e2814faa48cf796e9b1c51bc758d0a3c12e975f28e57a65",
+        "prompt_hash_basis": "source hash and declared prompt version, unless explicitly supplied"
+      },
+      "gate_failures": [
+        "25 examples failed or were skipped"
+      ],
+      "predictions_sha256": "e5e430919f7f67e31c71805f246ee6c178f8cea34667235467e531c494c5ec0e",
+      "analysis_categories": {
+        "gold_execution_failure": 6,
+        "execution_mismatch": 48,
+        "application_failure": 22
+      },
+      "execution_details": {
+        "by_difficulty": {
+          "unavailable": {
+            "count": 100,
+            "execution_accuracy": 0.24
+          }
+        },
+        "gold_execution_errors": {
+          "bird-train-0": "OperationalError: interrupted",
+          "bird-train-31": "ValueError: Result exceeds 10000 rows; refine the query. Evaluation is not truncated.",
+          "bird-train-32": "OperationalError: interrupted",
+          "bird-train-76": "OperationalError: no such table: Order Details",
+          "bird-train-77": "OperationalError: no such column: CompanyName",
+          "bird-train-78": "OperationalError: no such table: Order Details"
+        },
+        "correction_recovery": {
+          "initial_execution_failures": 25,
+          "recovered": 0,
+          "conditional_rate": 0.0
+        },
+        "claim": "Local guarded Mini-Dev evaluation using upstream EX comparator; not an official leaderboard submission"
+      }
+    },
+    "corrected": {
+      "run_id": "20260828T105131.213647Z-faaa4e61",
+      "created_at": "2026-08-28T10:58:25.350067+00:00",
+      "count": 100,
+      "completed": 87,
+      "failed": 13,
+      "skipped": 0,
+      "status": "failed",
+      "metrics": {
+        "guarded_bird_ex": 0.26,
+        "first_attempt_accuracy": 0.25,
+        "first_attempt_execution_rate": 0.76,
+        "execution_recovered_fraction": 0.11,
+        "timeout_case_fraction": 0.03
+      },
+      "metric_versions": {
+        "guarded_bird_ex": "2",
+        "first_attempt_accuracy": "2",
+        "first_attempt_execution_rate": "2",
+        "execution_recovered_fraction": "2",
+        "timeout_case_fraction": "2"
+      },
+      "confidence_intervals": {
+        "guarded_bird_ex": {
+          "low": 0.18,
+          "high": 0.34,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        },
+        "first_attempt_accuracy": {
+          "low": 0.17,
+          "high": 0.33,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        }
+      },
+      "p50_seconds": 2.6032143000047654,
+      "p95_seconds": 9.300795100003597,
+      "identity": {
+        "code_commit": null,
+        "source_hash": "3a7dfd3c616ff3928b1e1f8ff1b46320a37ac82894c003d13c891b7fd3b64af5",
+        "working_tree_dirty": true,
+        "code_identity_note": "Source hash is authoritative for uncommitted local experiments",
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "mode": "live",
+        "setting": "corrected",
+        "split": "development",
+        "scorer": {
+          "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+          "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+          "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+        },
+        "prompt_version": "sql-v2-schema-graph-values",
+        "configuration_hash": "89d567b3930164978f9edb8fe34b10bb0788638b36b7cd7330756359414f5c05",
+        "prompt_hash": "fc2325ff74452eca3e2814faa48cf796e9b1c51bc758d0a3c12e975f28e57a65",
+        "prompt_hash_basis": "source hash and declared prompt version, unless explicitly supplied"
+      },
+      "gate_failures": [
+        "13 examples failed or were skipped"
+      ],
+      "predictions_sha256": "bb90706b279d755a02995af33d4bf89bbde1e4e7f51121455b45a9b57a28e169",
+      "analysis_categories": {
+        "gold_execution_failure": 6,
+        "execution_mismatch": 57,
+        "application_failure": 11
+      },
+      "execution_details": {
+        "by_difficulty": {
+          "unavailable": {
+            "count": 100,
+            "execution_accuracy": 0.26
+          }
+        },
+        "gold_execution_errors": {
+          "bird-train-0": "OperationalError: interrupted",
+          "bird-train-31": "ValueError: Result exceeds 10000 rows; refine the query. Evaluation is not truncated.",
+          "bird-train-32": "OperationalError: interrupted",
+          "bird-train-76": "OperationalError: no such table: Order Details",
+          "bird-train-77": "OperationalError: no such column: CompanyName",
+          "bird-train-78": "OperationalError: no such table: Order Details"
+        },
+        "correction_recovery": {
+          "initial_execution_failures": 24,
+          "recovered": 11,
+          "conditional_rate": 0.4583333333333333
+        },
+        "claim": "Local guarded Mini-Dev evaluation using upstream EX comparator; not an official leaderboard submission"
+      }
+    }
+  },
+  "paired_comparisons": {
+    "linking": {
+      "guarded_bird_ex": {
+        "delta": -0.040000000000000036,
+        "low": -0.12000000000000002,
+        "high": 0.03,
+        "level": 0.95,
+        "method": "paired case bootstrap",
+        "samples": 300,
+        "seed": 42,
+        "metric_version": "2"
+      }
+    },
+    "corrected": {
+      "guarded_bird_ex": {
+        "delta": -0.020000000000000018,
+        "low": -0.09000000000000002,
+        "high": 0.04999999999999999,
+        "level": 0.95,
+        "method": "paired case bootstrap",
+        "samples": 300,
+        "seed": 42,
+        "metric_version": "2"
+      }
+    }
+  },
+  "by_category": {
+    "unavailable": {
+      "count": 100,
+      "modes": {
+        "baseline": {
+          "guarded_bird_ex": 0.28
+        },
+        "linking": {
+          "guarded_bird_ex": 0.24
+        },
+        "corrected": {
+          "guarded_bird_ex": 0.26
+        }
+      }
+    }
+  },
+  "local_api_charge_usd": 0,
+  "hardware_electricity_cost_usd": null,
+  "limitations": [
+    "Comparisons summarize the same fixed cases, not independent benchmark replications.",
+    "Paired intervals use 300 deterministic resamples; no multiple-comparison correction.",
+    "Failed examples remain in denominators. A descriptive comparison does not pass a failed execution gate.",
+    "First/subsequent latency is not proof of cold/warm residency; see the separate model-residency probe.",
+    "Guarded 100 BIRD training development cases using the pinned upstream set-of-rows comparator; not a leaderboard result."
+  ]
+}

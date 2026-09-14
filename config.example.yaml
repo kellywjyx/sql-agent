@@ -1,0 +1,14 @@
+model: qwen2.5-coder:7b-instruct
+embedding_model: BAAI/bge-small-en-v1.5
+schema_mode: auto
+pipeline_profile: v5
+generation_strategy: single
+max_attempts: 3
+query_timeout_seconds: 3
+display_rows: 100
+evaluation_max_rows: 10000
+api_port: 8102
+ui_port: 8502
+# Reference defaults, not an automatically loaded settings file.
+# OLLAMA_MODEL sets the model. CLI --database selects a local database.
+# Safety limits are enforced in execution.py / worker.py; the API never accepts SQL.

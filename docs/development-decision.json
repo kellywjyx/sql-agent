@@ -1,0 +1,11 @@
+{
+  "created_at": "2026-08-28T11:02:20.767777+00:00",
+  "basis": "100 BIRD train development cases only; final answers and metrics not inspected",
+  "comparison": "20260828T105943Z-7bbf58e3",
+  "headline_setting": "baseline",
+  "runtime_decision": "Keep all three predeclared settings unchanged through final evaluation. No prompt/schema/guard tuning after development.",
+  "reason": "Full-schema generation has the highest development guarded EX (0.28 vs 0.24 linking and 0.26 corrected), with overlapping paired intervals. Correction recovers execution more often than correctness.",
+  "application_default": "Existing linking plus bounded correction remains an experimental demonstration workflow, not a claimed accuracy improvement.",
+  "final_started_before_record": true,
+  "note": "The queue started final reference scoring before this record; no final prediction or score was inspected."
+}

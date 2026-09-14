@@ -1,0 +1,27 @@
+.venv*/
+**/.venv*/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+.env
+.cache/
+artifacts/
+**/artifacts/
+**/data/downloads/
+**/data/prepared/
+**/adapters/
+**/.streamlit/secrets.toml
+
+wheelhouse/
+.impeccable/review/
+
+# Optional local Docker wheel input
+vendor/*.whl
+
+# Campaign-specific pytest caches and temp roots
+.pytest-cache-*/
+.pytest-tmp-*/

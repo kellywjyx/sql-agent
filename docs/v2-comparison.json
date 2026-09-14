@@ -1,0 +1,714 @@
+{
+  "schema_version": 1,
+  "project": "sql-agent",
+  "split": "final",
+  "dataset_hash": "5cdb12d56dfb17e3953fd34f39b3f1a4d03d92d29ad334608b9b18fd4558462a",
+  "all_cases_attempted": true,
+  "execution_gate_passed": false,
+  "baseline": "baseline",
+  "runs": {
+    "baseline": {
+      "run_id": "20260828T110044.079203Z-b0a75bf1",
+      "created_at": "2026-08-28T11:20:17.914956+00:00",
+      "count": 500,
+      "completed": 272,
+      "failed": 228,
+      "skipped": 0,
+      "status": "failed",
+      "metrics": {
+        "guarded_bird_ex": 0.19,
+        "first_attempt_accuracy": 0.19,
+        "first_attempt_execution_rate": 0.544,
+        "execution_recovered_fraction": 0.0,
+        "timeout_case_fraction": 0.0
+      },
+      "metric_versions": {
+        "guarded_bird_ex": "2",
+        "first_attempt_accuracy": "2",
+        "first_attempt_execution_rate": "2",
+        "execution_recovered_fraction": "2",
+        "timeout_case_fraction": "2"
+      },
+      "confidence_intervals": {
+        "guarded_bird_ex": {
+          "low": 0.16,
+          "high": 0.222,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        },
+        "first_attempt_accuracy": {
+          "low": 0.16,
+          "high": 0.222,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        }
+      },
+      "p50_seconds": 2.067444100001012,
+      "p95_seconds": 4.196366500007571,
+      "identity": {
+        "code_commit": null,
+        "source_hash": "3a7dfd3c616ff3928b1e1f8ff1b46320a37ac82894c003d13c891b7fd3b64af5",
+        "working_tree_dirty": true,
+        "code_identity_note": "Source hash is authoritative for uncommitted local experiments",
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "mode": "live",
+        "setting": "baseline",
+        "split": "final",
+        "scorer": {
+          "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+          "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+          "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+        },
+        "prompt_version": "sql-v2-schema-graph-values",
+        "configuration_hash": "b726908d9782268329158698b54b3f8605ee0f9a06f28f8311cf63cbba40bd83",
+        "prompt_hash": "fc2325ff74452eca3e2814faa48cf796e9b1c51bc758d0a3c12e975f28e57a65",
+        "prompt_hash_basis": "source hash and declared prompt version, unless explicitly supplied"
+      },
+      "gate_failures": [
+        "228 examples failed or were skipped"
+      ],
+      "predictions_sha256": "55ee21a583f3659c9364549b7a342b78c98bd0d0ce7e37d53272a467ae144e8e",
+      "analysis_categories": {
+        "execution_mismatch": 174,
+        "application_failure": 119,
+        "gold_execution_failure": 112
+      },
+      "execution_details": {
+        "by_difficulty": {
+          "challenging": {
+            "count": 102,
+            "execution_accuracy": 0.11764705882352941
+          },
+          "moderate": {
+            "count": 250,
+            "execution_accuracy": 0.152
+          },
+          "simple": {
+            "count": 148,
+            "execution_accuracy": 0.30405405405405406
+          }
+        },
+        "gold_execution_errors": {
+          "bird-mini-dev-83": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-106": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-108": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-109": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-111": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-114": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-128": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-129": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-130": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-131": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-132": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-133": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-134": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-135": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-136": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-137": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-138": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-139": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-140": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-141": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-142": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-143": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-144": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-145": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-146": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-147": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-148": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-149": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-150": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-151": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-152": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-153": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-154": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-155": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-156": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-157": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-158": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-159": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-160": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-161": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-162": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-163": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-164": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-165": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-166": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-167": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-168": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-169": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-170": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-171": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-172": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-173": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-174": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-175": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-176": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-177": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-178": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-203": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-340": "OperationalError: interrupted",
+          "bird-mini-dev-346": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-347": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-348": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-349": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-350": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-351": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-352": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-353": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-354": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-355": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-356": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-357": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-358": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-359": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-360": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-361": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-362": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-363": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-364": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-365": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-366": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-367": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-368": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-369": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-370": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-371": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-372": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-373": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-374": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-375": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-376": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-377": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-378": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-379": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-380": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-381": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-382": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-383": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-384": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-385": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-386": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-387": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-388": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-389": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-390": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-391": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-392": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-393": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-394": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-395": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-396": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-397": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-497": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP"
+        },
+        "correction_recovery": {
+          "initial_execution_failures": 222,
+          "recovered": 0,
+          "conditional_rate": 0.0
+        },
+        "claim": "Local guarded Mini-Dev evaluation using upstream EX comparator; not an official leaderboard submission"
+      }
+    },
+    "linking": {
+      "run_id": "20260828T112019.395011Z-90187ed3",
+      "created_at": "2026-08-28T11:43:26.393432+00:00",
+      "count": 500,
+      "completed": 263,
+      "failed": 237,
+      "skipped": 0,
+      "status": "failed",
+      "metrics": {
+        "guarded_bird_ex": 0.158,
+        "first_attempt_accuracy": 0.158,
+        "first_attempt_execution_rate": 0.526,
+        "execution_recovered_fraction": 0.0,
+        "timeout_case_fraction": 0.0
+      },
+      "metric_versions": {
+        "guarded_bird_ex": "2",
+        "first_attempt_accuracy": "2",
+        "first_attempt_execution_rate": "2",
+        "execution_recovered_fraction": "2",
+        "timeout_case_fraction": "2"
+      },
+      "confidence_intervals": {
+        "guarded_bird_ex": {
+          "low": 0.128,
+          "high": 0.192,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        },
+        "first_attempt_accuracy": {
+          "low": 0.128,
+          "high": 0.192,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        }
+      },
+      "p50_seconds": 2.516074799990747,
+      "p95_seconds": 4.791114199993899,
+      "identity": {
+        "code_commit": null,
+        "source_hash": "3a7dfd3c616ff3928b1e1f8ff1b46320a37ac82894c003d13c891b7fd3b64af5",
+        "working_tree_dirty": true,
+        "code_identity_note": "Source hash is authoritative for uncommitted local experiments",
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "mode": "live",
+        "setting": "linking",
+        "split": "final",
+        "scorer": {
+          "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+          "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+          "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+        },
+        "prompt_version": "sql-v2-schema-graph-values",
+        "configuration_hash": "c0c5da4b6ce136322fcaaa3f5cd7bfc09ebac0318e61b2ec950db254804dbf8a",
+        "prompt_hash": "fc2325ff74452eca3e2814faa48cf796e9b1c51bc758d0a3c12e975f28e57a65",
+        "prompt_hash_basis": "source hash and declared prompt version, unless explicitly supplied"
+      },
+      "gate_failures": [
+        "237 examples failed or were skipped"
+      ],
+      "predictions_sha256": "a3c013d6d43b2dc674c4f4cb07408442aae989c3169c6eb62a4845ef5d32ee9c",
+      "analysis_categories": {
+        "execution_mismatch": 181,
+        "application_failure": 128,
+        "gold_execution_failure": 112
+      },
+      "execution_details": {
+        "by_difficulty": {
+          "challenging": {
+            "count": 102,
+            "execution_accuracy": 0.0784313725490196
+          },
+          "moderate": {
+            "count": 250,
+            "execution_accuracy": 0.124
+          },
+          "simple": {
+            "count": 148,
+            "execution_accuracy": 0.2702702702702703
+          }
+        },
+        "gold_execution_errors": {
+          "bird-mini-dev-83": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-106": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-108": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-109": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-111": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-114": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-128": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-129": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-130": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-131": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-132": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-133": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-134": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-135": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-136": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-137": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-138": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-139": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-140": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-141": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-142": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-143": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-144": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-145": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-146": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-147": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-148": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-149": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-150": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-151": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-152": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-153": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-154": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-155": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-156": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-157": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-158": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-159": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-160": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-161": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-162": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-163": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-164": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-165": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-166": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-167": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-168": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-169": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-170": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-171": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-172": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-173": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-174": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-175": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-176": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-177": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-178": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-203": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-340": "OperationalError: interrupted",
+          "bird-mini-dev-346": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-347": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-348": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-349": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-350": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-351": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-352": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-353": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-354": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-355": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-356": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-357": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-358": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-359": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-360": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-361": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-362": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-363": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-364": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-365": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-366": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-367": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-368": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-369": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-370": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-371": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-372": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-373": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-374": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-375": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-376": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-377": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-378": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-379": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-380": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-381": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-382": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-383": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-384": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-385": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-386": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-387": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-388": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-389": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-390": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-391": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-392": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-393": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-394": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-395": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-396": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-397": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-497": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP"
+        },
+        "correction_recovery": {
+          "initial_execution_failures": 233,
+          "recovered": 0,
+          "conditional_rate": 0.0
+        },
+        "claim": "Local guarded Mini-Dev evaluation using upstream EX comparator; not an official leaderboard submission"
+      }
+    },
+    "corrected": {
+      "run_id": "20260828T114327.756620Z-2ac85047",
+      "created_at": "2026-08-28T12:20:58.141634+00:00",
+      "count": 500,
+      "completed": 344,
+      "failed": 156,
+      "skipped": 0,
+      "status": "failed",
+      "metrics": {
+        "guarded_bird_ex": 0.196,
+        "first_attempt_accuracy": 0.158,
+        "first_attempt_execution_rate": 0.526,
+        "execution_recovered_fraction": 0.162,
+        "timeout_case_fraction": 0.0
+      },
+      "metric_versions": {
+        "guarded_bird_ex": "2",
+        "first_attempt_accuracy": "2",
+        "first_attempt_execution_rate": "2",
+        "execution_recovered_fraction": "2",
+        "timeout_case_fraction": "2"
+      },
+      "confidence_intervals": {
+        "guarded_bird_ex": {
+          "low": 0.166,
+          "high": 0.23,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        },
+        "first_attempt_accuracy": {
+          "low": 0.128,
+          "high": 0.192,
+          "level": 0.95,
+          "method": "case bootstrap percentile",
+          "samples": 300,
+          "seed": 42
+        }
+      },
+      "p50_seconds": 3.464338499994483,
+      "p95_seconds": 9.223024599981727,
+      "identity": {
+        "code_commit": null,
+        "source_hash": "3a7dfd3c616ff3928b1e1f8ff1b46320a37ac82894c003d13c891b7fd3b64af5",
+        "working_tree_dirty": true,
+        "code_identity_note": "Source hash is authoritative for uncommitted local experiments",
+        "model": "llama3.1:8b",
+        "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+        "mode": "live",
+        "setting": "corrected",
+        "split": "final",
+        "scorer": {
+          "url": "https://raw.githubusercontent.com/bird-bench/mini_dev/b3d4bcbbae9a96934ad812551eb400c7a3b23c12/evaluation/evaluation_ex.py",
+          "commit": "b3d4bcbbae9a96934ad812551eb400c7a3b23c12",
+          "sha256": "da1bbcd4530be83692d7c650c814ea9704bb710d0c953eb75d02ccb38233cf89"
+        },
+        "prompt_version": "sql-v2-schema-graph-values",
+        "configuration_hash": "89d567b3930164978f9edb8fe34b10bb0788638b36b7cd7330756359414f5c05",
+        "prompt_hash": "fc2325ff74452eca3e2814faa48cf796e9b1c51bc758d0a3c12e975f28e57a65",
+        "prompt_hash_basis": "source hash and declared prompt version, unless explicitly supplied"
+      },
+      "gate_failures": [
+        "156 examples failed or were skipped"
+      ],
+      "predictions_sha256": "de7a11a753ea5ddf82be05355c8f431288b8b8c637479254420a8a6ed1bc4daf",
+      "analysis_categories": {
+        "execution_mismatch": 241,
+        "application_failure": 49,
+        "gold_execution_failure": 112
+      },
+      "execution_details": {
+        "by_difficulty": {
+          "challenging": {
+            "count": 102,
+            "execution_accuracy": 0.10784313725490197
+          },
+          "moderate": {
+            "count": 250,
+            "execution_accuracy": 0.156
+          },
+          "simple": {
+            "count": 148,
+            "execution_accuracy": 0.32432432432432434
+          }
+        },
+        "gold_execution_errors": {
+          "bird-mini-dev-83": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-106": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-108": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-109": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-111": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-114": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-128": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-129": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-130": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-131": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-132": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-133": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-134": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-135": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-136": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-137": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-138": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-139": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-140": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-141": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-142": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-143": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-144": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-145": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-146": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-147": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-148": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-149": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-150": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-151": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-152": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-153": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-154": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-155": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-156": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-157": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-158": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-159": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-160": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-161": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-162": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-163": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-164": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-165": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-166": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-167": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-168": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-169": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-170": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-171": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-172": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-173": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-174": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-175": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-176": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-177": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-178": "DatabaseError: malformed database schema (Match) - too many columns on Match",
+          "bird-mini-dev-203": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP",
+          "bird-mini-dev-340": "OperationalError: interrupted",
+          "bird-mini-dev-346": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-347": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-348": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-349": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-350": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-351": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-352": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-353": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-354": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-355": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-356": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-357": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-358": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-359": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-360": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-361": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-362": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-363": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-364": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-365": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-366": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-367": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-368": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-369": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-370": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-371": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-372": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-373": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-374": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-375": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-376": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-377": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-378": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-379": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-380": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-381": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-382": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-383": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-384": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-385": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-386": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-387": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-388": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-389": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-390": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-391": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-392": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-393": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-394": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-395": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-396": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-397": "DatabaseError: malformed database schema (cards) - too many columns on cards",
+          "bird-mini-dev-497": "OperationalError: not authorized to use function: CURRENT_TIMESTAMP"
+        },
+        "correction_recovery": {
+          "initial_execution_failures": 232,
+          "recovered": 81,
+          "conditional_rate": 0.34913793103448276
+        },
+        "claim": "Local guarded Mini-Dev evaluation using upstream EX comparator; not an official leaderboard submission"
+      }
+    }
+  },
+  "paired_comparisons": {
+    "linking": {
+      "guarded_bird_ex": {
+        "delta": -0.032,
+        "low": -0.062,
+        "high": -0.005999999999999978,
+        "level": 0.95,
+        "method": "paired case bootstrap",
+        "samples": 300,
+        "seed": 42,
+        "metric_version": "2"
+      }
+    },
+    "corrected": {
+      "guarded_bird_ex": {
+        "delta": 0.006000000000000005,
+        "low": -0.021999999999999992,
+        "high": 0.032,
+        "level": 0.95,
+        "method": "paired case bootstrap",
+        "samples": 300,
+        "seed": 42,
+        "metric_version": "2"
+      }
+    }
+  },
+  "by_category": {
+    "challenging": {
+      "count": 102,
+      "modes": {
+        "baseline": {
+          "guarded_bird_ex": 0.11764705882352941
+        },
+        "linking": {
+          "guarded_bird_ex": 0.0784313725490196
+        },
+        "corrected": {
+          "guarded_bird_ex": 0.10784313725490197
+        }
+      }
+    },
+    "moderate": {
+      "count": 250,
+      "modes": {
+        "baseline": {
+          "guarded_bird_ex": 0.152
+        },
+        "linking": {
+          "guarded_bird_ex": 0.124
+        },
+        "corrected": {
+          "guarded_bird_ex": 0.156
+        }
+      }
+    },
+    "simple": {
+      "count": 148,
+      "modes": {
+        "baseline": {
+          "guarded_bird_ex": 0.30405405405405406
+        },
+        "linking": {
+          "guarded_bird_ex": 0.2702702702702703
+        },
+        "corrected": {
+          "guarded_bird_ex": 0.32432432432432434
+        }
+      }
+    }
+  },
+  "local_api_charge_usd": 0,
+  "hardware_electricity_cost_usd": null,
+  "limitations": [
+    "Comparisons summarize the same fixed cases, not independent benchmark replications.",
+    "Paired intervals use 300 deterministic resamples; no multiple-comparison correction.",
+    "Failed examples remain in denominators. A descriptive comparison does not pass a failed execution gate.",
+    "First/subsequent latency is not proof of cold/warm residency; see the separate model-residency probe.",
+    "Guarded 500-case BIRD SQLite Mini-Dev using the pinned upstream set-of-rows comparator; not a leaderboard result."
+  ]
+}

@@ -1,0 +1,30 @@
+name: Offline verification
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  tests:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Obtain approved evaluation wheel
+        env:
+          WHEEL_URL: ${{ vars.LLM_EVALS_WHEEL_URL }}
+        run: |
+          if (-not $env:WHEEL_URL) { throw 'Configure the immutable llm-evals release URL before enabling consumer CI' }
+          $dependency = Get-Content evals-dependency.json -Raw | ConvertFrom-Json
+          if ($dependency.filename -notmatch '^portfolio_llm_evals-[0-9.]+-py3-none-any\.whl$') { throw 'Invalid wheel filename' }
+          Invoke-WebRequest -Uri $env:WHEEL_URL -OutFile $dependency.filename
+          if ((Get-FileHash -LiteralPath $dependency.filename -Algorithm SHA256).Hash.ToLowerInvariant() -ne $dependency.sha256) { throw 'Pinned wheel checksum mismatch' }
+          python -m pip install $dependency.filename
+          if ($LASTEXITCODE -ne 0) { throw 'Wheel installation failed' }
+      - name: Install locked application dependencies
+        run: python -m pip install -c requirements.lock.txt -e '.' pytest
+      - run: python -m pip check
+      - run: python -m pytest tests -q
