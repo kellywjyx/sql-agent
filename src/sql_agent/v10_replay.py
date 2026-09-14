@@ -112,7 +112,7 @@ def main():
                 "database_hash_mismatches": changed_databases(before), "api_cost_usd": 0,
                 "locked_final_opened": False}
 
-    report = run_suite(run_cases, predict, scorer.metrics(), root / "v10/sql-agent/eval/pilot/deterministic",
+    report = run_suite(run_cases, predict, scorer.metrics(include_ir=False), root / "v10/sql-agent/eval/pilot/deterministic",
         identity={"mode": "live", "capture_type": "deterministic_replay",
                   "candidate": "v10_b_deterministic", "version": REPLAY_VERSION,
                   "control_run_id": control_report["run_id"], "detector_calibration": calibration["version"],

@@ -155,9 +155,13 @@ class V7Scoring:
                 str(intent.get("set_operation", "none")) == reference["set_operation"],
             ]
             values.extend(components)
-        return sum(values) / len(values) if values else 0
+        if not values:
+            raise ValueError("not applicable: no prediction carries a semantic_intent")
+        return sum(values) / len(values)
 
-    def metrics(self):
+    def metrics(self, *, include_ir: bool = True):
+        # ir_structural_accuracy applies only to pipelines that emit a semantic intent (V7 grounded).
+        # Other pipelines opt out instead of reporting a misleading 0.0.
         return [
             Metric("execution_accuracy_v7", self.execution_accuracy, version=METRIC_VERSION),
             Metric("completion", self.completion, version=METRIC_VERSION),
@@ -166,8 +170,7 @@ class V7Scoring:
             Metric("scorer_agreement", self.scorer_agreement, version=METRIC_VERSION),
             Metric("official_gold_self_consistency", self.official_gold_self_consistency,
                    version=METRIC_VERSION),
-            Metric("ir_structural_accuracy", self.ir_structural_accuracy, version=METRIC_VERSION),
-        ]
+        ] + ([Metric("ir_structural_accuracy", self.ir_structural_accuracy, version=METRIC_VERSION)] if include_ir else [])
 
 
 def structural_error_families(expected_sql: str, actual_sql: str | None) -> list[str]:

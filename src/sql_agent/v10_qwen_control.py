@@ -35,7 +35,7 @@ def main():
                 "api_cost_usd": 0, "locked_final_opened": False}
 
     identity = client.check()
-    report = run_suite(cases, predict, scorer.metrics(), root / "v10/sql-agent/eval/pilot/qwen_v5_control",
+    report = run_suite(cases, predict, scorer.metrics(include_ir=False), root / "v10/sql-agent/eval/pilot/qwen_v5_control",
         identity={**identity, "mode": "live", "candidate": "qwen_v5_same_set_control",
                   "prompt_version": "v5.1-hybrid-schema-plan", "execution_policy": {**POLICY, "timeout_seconds": 10},
                   "configuration": {"schema_mode": "full", "semantic_review": False,

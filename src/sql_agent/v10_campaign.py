@@ -74,7 +74,7 @@ def main():
                 "api_cost_usd": 0, "locked_final_opened": False}
 
     identity = client.check()
-    report = run_suite(cases, predict, scorer.metrics(), root / f"v10/sql-agent/eval/{args.scope}/scoped_control",
+    report = run_suite(cases, predict, scorer.metrics(include_ir=False), root / f"v10/sql-agent/eval/{args.scope}/scoped_control",
         identity={**identity, "mode": "live", "execution_policy": {**POLICY, "timeout_seconds": 10},
                   "candidate": "v10_a_scoped_control", "prompt_version": PROMPT_VERSION,
                   "scope_version": "sql-v9-evidence-scope-v1", "api_cost_budget_usd": 0},

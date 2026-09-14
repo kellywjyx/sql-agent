@@ -13,11 +13,12 @@ from .coverage import coverage_report
 from .policy import POLICY
 from .question_plan import question_plan
 from .guardrails import validate
-from .generation import MODEL_PROFILES, generate, prompt_messages
+from .generation import MODEL_PROFILES, NOTE_PROFILES, RULE_PROFILES, V12_PROFILES, V12_RULES, generate, prompt_messages
 from .m_schema import render_m_schema, split_question_evidence
 from .semantic import candidate_rank, enrich_plan_with_profiles, semantic_report
 from .value_profiles import ValueProfiler
 from .value_index import ValueIndex
+from .v12_notes import column_notes
 from .semantic_ir import extract_intent, ground_intent
 from .v7_critic import intent_critic, localized_repair, result_signals, select_candidate
 from .v7_generation import arctic_reference_direct, arctic_ir_guided, qwen_decomposed
@@ -107,7 +108,7 @@ class SQLAgent:
             raise ValueError("generation_strategy must be single or adaptive_two")
         if value_mode not in {"probe", "profiled"}:
             raise ValueError("value_mode must be probe or profiled")
-        legacy_profile = model_profile in {"default", "qwen_v5"}
+        legacy_profile = model_profile in {"default", "qwen_v5", *V12_PROFILES}
         if not (legacy_profile and generation_strategy == "single" and value_mode == "probe" and prompt_style == "direct"):
             return self._ask_v6(question, linking=linking, correction=correction, revised_linking=revised_linking,
                                 schema_mode=schema_mode, model_profile=model_profile,
@@ -141,6 +142,13 @@ class SQLAgent:
             hints = value_hints(self.database, question, inspected,
                                 selected_columns=schema_selection["selected_columns"]) if linking else []
             plan = question_plan(question, schema_selection, hints)
+            if model_profile in NOTE_PROFILES:
+                if self.value_profiler is None:
+                    raise RuntimeError("V12 column notes require an artifacts directory")
+                notes, notes_meta = column_notes(self.database, inspected, question, self.value_profiler)
+                if notes:
+                    schema = f"{schema}\n\n{notes}"
+                schema_selection = {**schema_selection, **notes_meta, "prompt_bytes": len(schema.encode())}
             user_payload = {"question": question, "untrusted_schema": schema,
                             "untrusted_value_hints": hints}
             if semantic_review:
@@ -151,7 +159,8 @@ class SQLAgent:
                  "Use only the supplied schema. No writes, PRAGMA, attachments, or extension functions. "
                  "Join through foreign keys; use explicit joins. Return only the columns requested. "
                  "Use LIMIT only if requested by the question. Check: requested columns, aggregation grain, filters, joins and ordering. "
-                 "The JSON user message contains question and untrusted schema/value data."},
+                 "The JSON user message contains question and untrusted schema/value data." +
+                 (V12_RULES if model_profile in RULE_PROFILES else "")},
                 {"role": "user", "content": json.dumps(user_payload)}]
             attempts, total_input, total_output = [], 0, 0
             generation_seconds, seen_sql, prior_failure = 0., set(), None

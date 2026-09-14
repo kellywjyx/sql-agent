@@ -53,7 +53,7 @@ def run(root: Path, stage: str, variant: str, *, resume: Path | None = None) -> 
     cases = _cases(root, stage); before = snapshot_database_hashes(cases)
     adapter = _adapter(root, stage, variant); runtime = V11Runtime(root, adapter)
     scorer = V7Scoring(cases, root / "v2/sql-agent/bird/downloads/evaluation_ex.py")
-    metrics = [*scorer.metrics(), *[Metric(name, lambda cs, ps, key=name: component_metrics(cs, ps)[key],
+    metrics = [*scorer.metrics(include_ir=False), *[Metric(name, lambda cs, ps, key=name: component_metrics(cs, ps)[key],
               version=METRIC_VERSION) for name in [f"structural_{part}_accuracy" for part in
               ("projection", "predicate", "join", "aggregate", "grain", "ordering")]]]
     def details(_, predictions):

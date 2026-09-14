@@ -17,7 +17,19 @@ MODEL_PROFILES = {
     # exposed in the public API or general CLI profile allowlists.
     "arctic_sql_q5": {"model": "hf.co/mradermacher/Arctic-Text2SQL-R1-7B-GGUF:Q5_K_M", "adapter": "specialist"},
     "xiyan_sql": {"model": "hf.co/mradermacher/XiYanSQL-QwenCoder-7B-2504-GGUF:Q4_K_M", "adapter": "specialist"},
+    # V12 arms reuse the frozen V5 generation path; only schema notes and system conventions differ.
+    "qwen_v12": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
+    "qwen_v12_rules": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
+    "qwen_v12_notes": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
 }
+V12_PROFILES = {"qwen_v12", "qwen_v12_rules", "qwen_v12_notes"}
+NOTE_PROFILES = {"qwen_v12", "qwen_v12_notes"}
+RULE_PROFILES = {"qwen_v12", "qwen_v12_rules"}
+V12_RULES = (" V12 conventions: (1) Clean text-stored numbers, money, counts, and durations with REPLACE and CAST "
+             "before comparing, sorting, or arithmetic. (2) Write literal values exactly as stored, matching case, "
+             "abbreviations, and accents shown in column notes or value hints. (3) Use DISTINCT when listing entities "
+             "that can repeat through joins. (4) Use CAST(... AS REAL) for division and percentages. (5) Exclude NULL "
+             "values when ordering to find a highest or lowest value.")
 
 
 class SQLPayload(BaseModel):
