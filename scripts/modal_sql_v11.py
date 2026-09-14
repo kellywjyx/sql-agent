@@ -220,7 +220,11 @@ def _upload_inputs() -> None:
 
 def _pull(prefix: str) -> list[str]:
     pulled = []
-    for entry in volume.listdir(prefix, recursive=True):
+    try:
+        entries = volume.listdir(prefix, recursive=True)
+    except modal.exception.NotFoundError:
+        return pulled  # stage not run in this tree (for example, V11.2 has no preflight)
+    for entry in entries:
         if entry.type != modal.volume.FileEntryType.FILE or "/checkpoint-" in entry.path:
             continue
         target = LOCAL_ARTIFACTS / entry.path
@@ -280,6 +284,7 @@ def main(stage: str, recipe: str = "A", variants: str = ""):
         pulled = (_pull("v11.2/v11/sql-agent/training") + _pull("v11.2/v11/sql-agent/preflight")
                   + _pull("v11.2/v11/sql-agent/eval"))
         exposure = LOCAL_ARTIFACTS / "v11.2/v11/compute/modal-exposure.jsonl"
+        exposure.parent.mkdir(parents=True, exist_ok=True)
         exposure.write_bytes(b"".join(volume.read_file("v11.2/v11/exposure.jsonl")))
         print(f"pulled {len(pulled)} files")
     else:
