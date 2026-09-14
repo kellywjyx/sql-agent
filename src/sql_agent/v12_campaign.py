@@ -64,7 +64,10 @@ def run(root: Path, stage: str, arm: str) -> dict:
                 "locked_final_opened": stage == "final", "api_cost_usd": 0}
 
     output = root / "v12/sql-agent" / ("smoke" if stage == "smoke" else "eval") / stage / arm
-    return run_suite(cases, predict, scorer.metrics(include_ir=False), output,
+    # The V5 path records no candidate list, so candidate-level metrics would read a misleading 0.0.
+    metrics = [metric for metric in scorer.metrics(include_ir=False)
+               if metric.name not in {"first_candidate_accuracy", "candidate_oracle_ex"}]
+    return run_suite(cases, predict, metrics, output,
         identity={**identity, "mode": "live", "candidate": arm, "model_profile": profile,
                   "prompt_version": PROMPT_VERSION, "execution_policy": {**POLICY, "timeout_seconds": 10},
                   "configuration": {"schema_mode": "full", "semantic_review": False, "max_attempts": 3,
