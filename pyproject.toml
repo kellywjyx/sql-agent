@@ -23,5 +23,4 @@ sql_agent = ["resources/*.json", "resources/*.jsonl", "resources/*.yaml"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
-addopts = "--import-mode=importlib --basetemp=../artifacts/pytest-sql-agent"
-cache_dir = "../artifacts/pytest-cache-sql-agent"
+addopts = "--import-mode=importlib"
