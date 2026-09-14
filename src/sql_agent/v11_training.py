@@ -15,7 +15,9 @@ from .v11_assets import model_path, verify
 from .v11_data import MODEL_REVISION, open_role
 
 
-TRAINING_VERSION = "sql-v11-qlora-v1"
+TRAINING_VERSION = "sql-v11.2-qlora-v1"
+# V11.2: covers the measured 2,900-token maximum; 2,048 truncated 10% of train and 28% of validation.
+MAX_LENGTH = 3072
 RECIPES = {"A": 2e-4, "B": 1e-4}
 
 
@@ -67,7 +69,7 @@ def _trainer(model, tokenizer, train_cases, validation_cases, output: Path, *, l
     args = SFTConfig(output_dir=str(output), seed=20260923, num_train_epochs=1,
         max_steps=max_steps, per_device_train_batch_size=1, per_device_eval_batch_size=1,
         gradient_accumulation_steps=gradient_accumulation, learning_rate=learning_rate,
-        max_length=2048, bf16=True, gradient_checkpointing=True,
+        max_length=MAX_LENGTH, bf16=True, gradient_checkpointing=True,
         gradient_checkpointing_kwargs={"use_reentrant": False}, optim="paged_adamw_8bit",
         logging_steps=1 if max_steps > 0 else 5, logging_nan_inf_filter=False,
         eval_strategy="steps" if validation_cases and save_half else "no",

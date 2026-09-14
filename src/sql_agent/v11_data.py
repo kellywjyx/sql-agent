@@ -168,7 +168,11 @@ def freeze_protocol(root: Path) -> dict:
 def _token_count(tokenizer, messages: list[dict], sql: str) -> int:
     value = [*messages, {"role": "assistant", "content": sql}]
     encoded = tokenizer.apply_chat_template(value, tokenize=True, add_generation_prompt=False)
-    return len(encoded)
+    # Transformers 4.57 returns a BatchEncoding here; len() of it counts keys, not tokens (V11.2 fix).
+    ids = encoded["input_ids"] if hasattr(encoded, "keys") else encoded
+    if ids and isinstance(ids[0], list):
+        ids = ids[0]
+    return len(ids)
 
 
 def finalize(root: Path, tokenizer, *, build_assets: bool = True) -> dict:
