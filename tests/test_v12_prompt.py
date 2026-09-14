@@ -36,7 +36,7 @@ def _ask(tmp_path, profile):
         connection.execute("INSERT INTO employee (name, salary) VALUES ('Ann', 'US$57,500.00')")
     client = _Client()
     agent = SQLAgent(database, client, execution_timeout=10, artifacts=tmp_path / "artifacts")
-    result = agent.ask("List employee names", revised_linking=True, correction=True, semantic_review=False,
+    result = agent.ask("List employee name and salary", revised_linking=True, correction=True, semantic_review=False,
                        schema_mode="full", model_profile=profile, generation_strategy="single",
                        value_mode="probe", prompt_style="direct")
     system, user = client.calls[0][0]["content"], json.loads(client.calls[0][1]["content"])
@@ -45,7 +45,8 @@ def _ask(tmp_path, profile):
 
 @pytest.mark.parametrize("profile, rules, notes", [
     ("qwen_v5", False, False), ("qwen_v12_rules", True, False),
-    ("qwen_v12_notes", False, True), ("qwen_v12", True, True)])
+    ("qwen_v12_notes", False, True), ("qwen_v12", True, True),
+    ("qwen_v13_notes", False, True), ("qwen_v13", True, True)])
 def test_v12_arms_share_the_v5_path_and_differ_only_in_rules_and_notes(tmp_path, profile, rules, notes):
     result, system, schema = _ask(tmp_path, profile)
     assert result["status"] == "completed" and result["termination"] == "query_executed"

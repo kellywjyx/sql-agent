@@ -21,10 +21,14 @@ MODEL_PROFILES = {
     "qwen_v12": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
     "qwen_v12_rules": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
     "qwen_v12_notes": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
+    "qwen_v13": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
+    "qwen_v13_notes": {"model": "qwen2.5-coder:7b-instruct", "adapter": "qwen"},
 }
-V12_PROFILES = {"qwen_v12", "qwen_v12_rules", "qwen_v12_notes"}
+# Profiles routed through the frozen V5 generation path.
+V12_PROFILES = {"qwen_v12", "qwen_v12_rules", "qwen_v12_notes", "qwen_v13", "qwen_v13_notes"}
 NOTE_PROFILES = {"qwen_v12", "qwen_v12_notes"}
-RULE_PROFILES = {"qwen_v12", "qwen_v12_rules"}
+V13_NOTE_PROFILES = {"qwen_v13", "qwen_v13_notes"}
+RULE_PROFILES = {"qwen_v12", "qwen_v12_rules", "qwen_v13"}
 V12_RULES = (" V12 conventions: (1) Clean text-stored numbers, money, counts, and durations with REPLACE and CAST "
              "before comparing, sorting, or arithmetic. (2) Write literal values exactly as stored, matching case, "
              "abbreviations, and accents shown in column notes or value hints. (3) Use DISTINCT when listing entities "

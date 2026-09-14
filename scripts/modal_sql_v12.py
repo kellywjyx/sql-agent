@@ -91,14 +91,14 @@ def prepare() -> dict:
 
 
 @app.function(volumes={str(REMOTE): volume}, gpu=GPU, timeout=5 * 3600, cpu=4, memory=32768)
-def run_arm(stage: str, arm: str) -> dict:
+def run_arm(stage: str, arm: str, version: str = "v12") -> dict:
     from sql_agent import v12_campaign
     volume.reload()
     _serve()
     _link_databases()
     started = time.time()
     try:
-        report = v12_campaign.run(REMOTE, stage, arm)
+        report = v12_campaign.run(REMOTE, stage, arm, version)
         result = {"run_id": report["run_id"], "metrics": report["metrics"], "p95_seconds": report["p95_seconds"],
                   "failed": report.get("failed"), "status": report.get("status"),
                   "database_hash_mismatches": report.get("details", {}).get("database_hash_mismatches")}
@@ -107,7 +107,7 @@ def run_arm(stage: str, arm: str) -> dict:
         result, status = {"error": f"{type(error).__name__}: {error}"}, "failed"
     finally:
         volume.commit()
-    return {"command": f"{stage}:{arm}", "status": status, "gpu": GPU,
+    return {"command": f"{version}:{stage}:{arm}", "status": status, "gpu": GPU,
             "gpu_seconds": round(time.time() - started, 1), "result": result}
 
 
@@ -145,9 +145,9 @@ def _upload_inputs():
     return len(databases)
 
 
-def _pull():
+def _pull(version: str):
     pulled = 0
-    for entry in volume.listdir("v12", recursive=True):
+    for entry in volume.listdir(version, recursive=True):
         if entry.type != modal.volume.FileEntryType.FILE:
             continue
         target = LOCAL / entry.path
@@ -162,7 +162,7 @@ def _pull():
 
 
 @app.local_entrypoint()
-def main(stage: str):
+def main(stage: str, version: str = "v12"):
     spent = json.loads(LEDGER.read_text(encoding="utf-8"))["total_cloud_gpu_cost_usd"] if LEDGER.exists() else 0.0
     if stage not in {"pull", "setup"} and spent >= COST_CAP_USD:
         raise SystemExit(f"Cloud GPU cap of ${COST_CAP_USD} reached; stopping.")
@@ -170,23 +170,26 @@ def main(stage: str):
         print("uploaded databases:", _upload_inputs())
         print(json.dumps(prepare.remote(), indent=2))
     elif stage in {"smoke", "development"}:
-        arms = ["control", "full"] if stage == "smoke" else ["control", "rules", "notes", "full"]
-        outcomes = [call.get() for call in [run_arm.spawn(stage, arm) for arm in arms]]
+        if stage == "smoke":
+            arms = ["control", "full"] if version == "v12" else ["full"]
+        else:  # V13 reuses the V12 development control
+            arms = ["control", "rules", "notes", "full"] if version == "v12" else ["notes", "full"]
+        outcomes = [call.get() for call in [run_arm.spawn(stage, arm, version) for arm in arms]]
         print(json.dumps(outcomes, indent=2))
         print("spent", _ledger(outcomes))
     elif stage == "final":
-        decision = LOCAL / "v12/sql-agent/development-decision.json"
+        decision = LOCAL / version / "sql-agent/development-decision.json"
         if not decision.is_file():
             raise SystemExit("Freeze the development decision locally before the locked final.")
         frozen = json.loads(decision.read_text(encoding="utf-8"))
         if not frozen.get("final_eligible"):
             raise SystemExit("Development selection did not permit the locked final.")
         with volume.batch_upload(force=True) as batch:
-            batch.put_file(str(decision), "/v12/sql-agent/development-decision.json")
-        outcomes = [call.get() for call in [run_arm.spawn("final", arm) for arm in ("control", frozen["winner"])]]
+            batch.put_file(str(decision), f"/{version}/sql-agent/development-decision.json")
+        outcomes = [call.get() for call in [run_arm.spawn("final", arm, version) for arm in ("control", frozen["winner"])]]
         print(json.dumps(outcomes, indent=2))
         print("spent", _ledger(outcomes))
     elif stage == "pull":
-        print("pulled", _pull(), "files")
+        print("pulled", _pull(version), "files")
     else:
         raise SystemExit("stage must be setup, smoke, development, final, or pull")
