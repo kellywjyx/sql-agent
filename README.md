@@ -24,7 +24,7 @@ Question → schema/value linking → SQL generation → AST guard → read-only
 
 **v2 local campaign completed with failures recorded.** All three settings ran on 100 BIRD training development cases and 500 SQLite Mini-Dev final cases. Final guarded execution accuracy is 19.0% for full schema, 15.8% for linking, and 19.6% for correction; the correction advantage is inconclusive. All 55 database hashes are unchanged. [Final comparison](docs/V2-RESULTS.md) and [failure analysis](docs/FAILURE-ANALYSIS.md) explain 112 unscorable reference queries and distinguish execution recovery from correct answers. These are guarded Mini-Dev results, not leaderboard scores.
 
-V1 completed real local smoke runs. Its measured results and limitations are preserved in [V1 results](docs/V1-RESULTS.md). Offline tests establish behavior, not model quality. Publication is pending; no GitHub URL is invented.
+V1 completed real local smoke runs. Its measured results and limitations are preserved in [V1 results](docs/V1-RESULTS.md). Offline tests establish behavior, not model quality. Source is public at https://github.com/kellywjyx/sql-agent; hosted CI runs the offline tests on every push. Portfolio site: https://kellywjyx.github.io/portfolio-site/
 
 ## Independent Windows setup
 
@@ -36,7 +36,7 @@ Run from this repository directory with Python 3.13 installed. No parent workspa
 .venv\Scripts\python.exe -m pip check
 ```
 
-Consumers require the versioned llm-evals wheel and checksum in `evals-dependency.json`. Its public release URL is deliberately unset until publication is approved. For now obtain the locally built wheel from the llm-evals release build; it is not downloaded at application startup.
+Consumers require the versioned llm-evals wheel and checksum in `evals-dependency.json`. The wheel is published with the [llm-evals v0.4.0 release](https://github.com/kellywjyx/llm-evals/releases/tag/v0.4.0): download it and pass its path to `-EvalsWheel`. CI downloads the same file through the `LLM_EVALS_WHEEL_URL` repository variable and verifies the pinned SHA-256. It is never downloaded at application startup.
 
 ## Local assets and commands
 
